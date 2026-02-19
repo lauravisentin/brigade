@@ -1,9 +1,10 @@
 export type Ressource = {
   id: string;
   title: string;
-  href?: string;
+  href?: string; // ? = optionnel, pas toutes les ressources ont un lien.
   img: string;
   tag?: string;
+  variant?: "large" | "tall" | "wide" | "default";
 };
 
 
@@ -14,6 +15,7 @@ export const ressources: Ressource[]  = [
     href: "https://guide.michelin.com",
     img: "/images/img1.jpg",
     tag: "Référence",
+    variant:"tall",
   },
   {
     id: "2",
@@ -21,6 +23,7 @@ export const ressources: Ressource[]  = [
     href: "https://lauriers.ca",
     img: "/images/img2.jpg",
     tag: "Québec",
+    variant:"large",
   },
   {
     id: "3",
@@ -28,6 +31,7 @@ export const ressources: Ressource[]  = [
     href: "https://example.com",
     img: "/images/img3.jpg",
     tag: "Marchés",
+    variant:"default",
   },
   {
     id: "4",
@@ -35,12 +39,22 @@ export const ressources: Ressource[]  = [
     href: "https://example.com",
     img: "/images/img4.jpg",
     tag: "Boissons",
+    variant:"default",
   },
   {
     id: "5",
-    title: "Online Recipes",
+    title: "Recettes en ligne",
     href: "https://example.com",
     img: "/images/img5.jpg",
     tag: "Recettes",
+    variant:"default",
+  },
+  {
+    id: "6",
+    title: "Bistros",
+    href: "https://example.com",
+    img: "/images/img6.jpg",
+    tag: "Restaurants",
+    variant:"wide",
   },
 ];
