@@ -1,0 +1,10 @@
+.vDeco__rule {
+  height: 1px;
+  background: rgba(26, 26, 26, 0.2);
+  transform-origin: left;
+  will-change: transform;
+}
+
+.vDeco__rule--dark {
+  background: rgba(244, 244, 245, 0.2);
+}

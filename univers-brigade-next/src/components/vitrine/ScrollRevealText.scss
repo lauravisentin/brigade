@@ -1,0 +1,24 @@
+.srt {
+  display: block;
+}
+
+.srt__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.srt__charWrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.srt__char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.srt__space {
+  display: inline-block;
+  width: 0.3em;
+}

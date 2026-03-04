@@ -1,0 +1,202 @@
+.vShowcase {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0e0e0e;
+  color: #f4f4f5;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @media (max-width: 768px) {
+    height: auto;
+    overflow: visible;
+    cursor: default;
+    padding-bottom: 48px;
+  }
+}
+
+.vShowcase__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 48px 48px 0;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    position: relative;
+    padding: 48px 24px 0;
+  }
+}
+
+.vShowcase__label {
+  display: block;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 245, 0.4);
+  margin-bottom: 12px;
+}
+
+.vShowcase__headline {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.vShowcase__track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 max(6vw, 48px);
+  gap: clamp(20px, 3vw, 40px);
+  will-change: transform;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    padding: 28px 24px 0;
+    gap: 20px;
+    transform: none !important;
+  }
+}
+
+.vShowcase__card {
+  position: relative;
+  flex-shrink: 0;
+  width: min(440px, 70vw);
+  height: 58vh;
+  overflow: hidden;
+  background: #181818;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.vShowcase__cardImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  img {
+    filter: grayscale(20%) contrast(1.02) brightness(0.92);
+    transition: filter 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+.vShowcase__card:hover .vShowcase__cardImage img {
+  filter: grayscale(0%) contrast(1.04) brightness(1);
+  transform: scale(1.04);
+}
+
+.vShowcase__cardOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.06) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  transition: opacity 400ms ease;
+}
+
+.vShowcase__card:hover .vShowcase__cardOverlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.58) 100%
+  );
+}
+
+.vShowcase__cardMeta {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateY(4px);
+  opacity: 0.85;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 400ms ease;
+}
+
+.vShowcase__card:hover .vShowcase__cardMeta {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.vShowcase__cardTag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vShowcase__cardTitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.vShowcase__cardLine {
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: width 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vShowcase__card:hover .vShowcase__cardLine {
+  width: 36px;
+}
+
+.vShowcase__card:focus-visible {
+  outline: 2px solid #f4f4f5;
+  outline-offset: -2px;
+}
+
+.vShowcase__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.vShowcase__progressBar {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform-origin: left;
+  will-change: transform;
+}
